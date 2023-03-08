@@ -5,7 +5,7 @@
       "setup": "npm install",
       "run": "PORT=\"$(shuf -i 2000-65535 -n 1)\"; (timeout --signal=SIGINT 5 node server.js --port=$PORT; exit 0) & sleep 1s && curl -s http://localhost:${PORT}/app/ && sleep 5s",
       "input": "",
-      "output": "{\"player\":\"(rock|paper|scissors|lizard|spock)\",\"opponent\":\"(rock|paper|scissors|lizard|spock)\",\"result\":\"(win|lose|tie)\"}",
+      "output": "200 OK",
       "comparison": "included",
       "timeout": 10,
       "points": 2500
@@ -15,7 +15,7 @@
       "setup": "",
       "run": "PORT=\"$(shuf -i 2000-65535 -n 1)\"; (timeout --signal=SIGINT 5 node server.js --port=$PORT; exit 0) & sleep 1s && curl -s http://localhost:${PORT}/app/nonexistent/ && sleep 5s",
       "input": "",
-      "output": "{\"player\":\"(rock|paper|scissors)\",\"opponent\":\"(rock|paper|scissors)\",\"result\":\"(win|lose|tie)\"}",
+      "output": "404 NOT FOUND",
       "comparison": "included",
       "timeout": 10,
       "points": 2500
@@ -25,7 +25,7 @@
       "setup": "",
       "run": "cat package.json",
       "input": "",
-      "output": "{\"player\":\"(rock|paper|scissors|lizard|spock)\",\"opponent\":\"(rock|paper|scissors|lizard|spock)\",\"result\":\"(win|lose|tie)\"}",
+      "output": "\"main\": \"server.js\"",
       "comparison": "included",
       "timeout": 10,
       "points": 2500
