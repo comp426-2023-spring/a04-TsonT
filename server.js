@@ -26,8 +26,9 @@ app.get("/app/rps", (req, res) => {
   res.status(200).send(rps());
 });
 
-app.post("/app/rps/play", (req, res) => {
-  let shot = req.body.shot;
+app.get("/app/rps/play", (req, res) => {
+  let shot;
+  req.body.shot ? (shot = req.body.shot) : (shot = req.query.shot);
 
   res.status(200).send(rps(shot));
 });
@@ -44,8 +45,9 @@ app.get("/app/rpsls", (req, res) => {
   res.status(200).send(rpsls());
 });
 
-app.post("/app/rpsls/play", (req, res) => {
-  let shot = req.body.shot;
+app.get("/app/rpsls/play", (req, res) => {
+  let shot;
+  req.body.shot ? (shot = req.body.shot) : (shot = req.query.shot);
 
   res.status(200).send(rpsls(shot));
 });
