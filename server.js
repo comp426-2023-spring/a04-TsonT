@@ -33,6 +33,13 @@ app.get("/app/rps/play", (req, res) => {
   res.status(200).send(rps(shot));
 });
 
+app.post("/app/rps/play", (req, res) => {
+  let shot;
+  req.body.shot ? (shot = req.body.shot) : (shot = req.query.shot);
+
+  res.status(200).send(rps(shot));
+});
+
 app.get("/app/rps/play/:shot", (req, res) => {
   let shot = req.params.shot;
   if (!RpsGameMaker.validateShot(shot)) {
@@ -46,6 +53,13 @@ app.get("/app/rpsls", (req, res) => {
 });
 
 app.get("/app/rpsls/play", (req, res) => {
+  let shot;
+  req.body.shot ? (shot = req.body.shot) : (shot = req.query.shot);
+
+  res.status(200).send(rpsls(shot));
+});
+
+app.post("/app/rpsls/play", (req, res) => {
   let shot;
   req.body.shot ? (shot = req.body.shot) : (shot = req.query.shot);
 
