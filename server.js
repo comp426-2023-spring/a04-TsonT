@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import { rps } from "node-rpsls";
-import { rpsls } from "node-rpsls";
+import { rps } from "./lib/bin/rps-cli.js";
+import { rpsls } from "./lib/bin/rpsls-cli.js";
 import minimist from "minimist";
 import express from "express";
-import { RpsGameMaker } from "node-rpsls";
-import { RpslsGameMaker } from "node-rpsls";
+import { GameMaker as RpsGameMaker } from "./lib/bin/rps-cli.js";
+import { GameMaker as RpslsGameMaker } from "./lib/bin/rpsls-cli.js";
 
 let argv = minimist(process.argv.slice(2));
 let PORT = 5000;
@@ -64,5 +64,3 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT);
-
-console.log(PORT);
