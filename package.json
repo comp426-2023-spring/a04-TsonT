@@ -4,7 +4,7 @@
   "description": "This assignment will help you stand up a web API using Express and the module that you produced for a03.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node server.js --port=5555"
   },
   "repository": {
     "type": "git",
